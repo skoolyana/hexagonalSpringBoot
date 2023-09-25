@@ -10,4 +10,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com.hexagonal.adapter.jpa")
 @EnableJpaRepositories("com.hexagonal.adapter.jpa")
 public class JpaConfig {
+
 }

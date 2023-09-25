@@ -11,7 +11,6 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @Getter
@@ -24,7 +23,7 @@ import lombok.ToString;
 @Builder(builderClassName = "Builder")
 public class PriceEntity {
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -43,5 +42,5 @@ public class PriceEntity {
     private Double price;
 
     private String currency;
-	
+
 }

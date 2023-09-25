@@ -11,7 +11,7 @@ import com.hexagonal.exception.pricing.PricingNotFoundException;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-	@ExceptionHandler(PricingNotFoundException.class)
+    @ExceptionHandler(PricingNotFoundException.class)
     public ResponseEntity<String> handlePricingNotFoundException(PricingNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }

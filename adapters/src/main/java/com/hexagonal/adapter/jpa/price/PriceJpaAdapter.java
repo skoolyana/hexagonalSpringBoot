@@ -15,14 +15,14 @@ import lombok.RequiredArgsConstructor;
 @Component
 @RequiredArgsConstructor
 public class PriceJpaAdapter implements PriceJpaPort {
-	
+
     private final PriceRepository priceRepository;
 
-	@Override
-	public PriceDomainModel findPriceByBrandAndProductAndDate(Long brandId, Long productId, LocalDateTime date) {
-		// TODO Auto-generated method stub
-		
-		List<PriceEntity> prices = priceRepository.findPricesInRangeOrderedByPriorityDesc(
+    @Override
+    public PriceDomainModel findPriceByBrandAndProductAndDate(Long brandId, Long productId, LocalDateTime date) {
+        // TODO Auto-generated method stub
+
+        List<PriceEntity> prices = priceRepository.findPricesInRangeOrderedByPriorityDesc(
                 brandId, productId, date);
 
         if (!prices.isEmpty()) {
@@ -30,6 +30,6 @@ public class PriceJpaAdapter implements PriceJpaPort {
         }
 
         return null; // Handle the case when no matching rate is found
-		
-	}
+
+    }
 }

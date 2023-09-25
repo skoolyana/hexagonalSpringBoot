@@ -7,7 +7,7 @@ import com.hexagonal.domain.model.price.PriceDomainModel;
 
 @Mapper(componentModel = "spring")
 public interface PriceMapper {
-	  
-	    PriceDto toDto(PriceDomainModel priceDomainModel);
+
+    PriceDto toDto(PriceDomainModel priceDomainModel);
 
 }

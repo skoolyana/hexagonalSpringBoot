@@ -15,14 +15,13 @@ import lombok.ToString;
 @ToString
 @Builder
 public class PriceDto {
-	
-	private Long productId;
+
+    private Long productId;
     private String brandId;
     private Integer priceList;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private Double price;
     private String currency;
-	
-}
 
+}

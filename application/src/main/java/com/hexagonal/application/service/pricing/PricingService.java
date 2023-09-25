@@ -14,19 +14,17 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class PricingService implements PriceServicePort {
-	
     private final PriceJpaPort priceJpaPort;
 
-	@Override
-	public PriceDomainModel findPriceByBrandAndProductAndDate(Long brandId, Long productId, LocalDateTime date) {
+    @Override
+    public PriceDomainModel findPriceByBrandAndProductAndDate(Long brandId, Long productId, LocalDateTime date) {
 
-		
-		PriceDomainModel price = priceJpaPort.findPriceByBrandAndProductAndDate(brandId, productId, date);
+        PriceDomainModel price = priceJpaPort.findPriceByBrandAndProductAndDate(brandId, productId, date);
 
-		if (price == null) {
+        if (price == null) {
             throw new PricingNotFoundException("Price not found for the given criteria.");
         }
-	
-		return price;
-	}
+
+        return price;
+    }
 }

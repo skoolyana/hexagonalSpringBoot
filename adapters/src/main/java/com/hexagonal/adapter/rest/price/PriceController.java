@@ -17,19 +17,18 @@ import lombok.RequiredArgsConstructor;
 @Validated
 @RequiredArgsConstructor
 public class PriceController {
-	
+
     private final PriceServicePort priceServicePort;
-    
+
     private final PriceMapper priceMapper;
 
-    
     @GetMapping("/prices")
     public PriceDto calculatePrice(
             @RequestParam Long brandId,
             @RequestParam Long productId,
             @RequestParam String dateString) {
 
-    	// Parse the date string to LocalDateTime (you can use a custom date parser)
+        // Parse the date string to LocalDateTime (you can use a custom date parser)
         LocalDateTime date;
 
         try {
@@ -37,13 +36,12 @@ public class PriceController {
         } catch (Exception e) {
             throw new InvalidRequestException("Invalid date format. Please provide a valid date.");
         }
-        
+
         // Call the PriceServicePort to calculate the price
         PriceDomainModel priceDomainModel = priceServicePort.findPriceByBrandAndProductAndDate(brandId, productId, date);
 
         PriceDto response = priceMapper.toDto(priceDomainModel);
 
         return response;
-    }      
-    
+    }
 }

@@ -17,12 +17,11 @@ import lombok.ToString;
 @Builder
 public class PriceDomainModel {
 
-	private Long productId;
+    private Long productId;
     private Long brandId;
     private Integer priceList;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private Double price;
     private String currency;
-	
 }

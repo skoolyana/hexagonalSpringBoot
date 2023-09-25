@@ -1,10 +1,19 @@
 package com.hexagonal.adapter.rest.price.dto;
 
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-import lombok.Data;
-
-@Data
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@ToString
+@Builder
 public class PriceDto {
 	
 	private Long productId;

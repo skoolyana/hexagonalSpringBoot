@@ -41,7 +41,6 @@ public class PriceJpaAdapterTest {
         Long productId = mockPriceEntity.getProductId();
         LocalDateTime date = LocalDateTime.of(2020, 6, 14, 10, 0);
 
-       
         List<PriceEntity> priceEntities = new ArrayList<>();
         priceEntities.add(mockPriceEntity);
 

@@ -1,12 +1,10 @@
 package com.hexagonal.adapter.rest.price;
 
 import java.time.LocalDateTime;
-
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.hexagonal.adapter.rest.price.dto.PriceDto;
 import com.hexagonal.adapter.rest.price.dto.mapper.PriceMapper;
 import com.hexagonal.domain.model.price.PriceDomainModel;

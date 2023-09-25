@@ -1,24 +1,23 @@
-# Read Me First
-The following was discovered as part of building this project:
+# rest-spring-boot-hexagonal-architecture
 
-* The JVM level was changed from '11' to '17', review the [JDK Version Range](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions#jdk-version-range) on the wiki for more details.
+This project is to expose my interpretation of the hexagonal architecture, under spring-boot framework.
 
-# Getting Started
+The diagram of the hexagonal architecture relies on the following:
 
-### Reference Documentation
-For further reference, please consider the following sections:
+![Hexagonal architecture diagram](img/hexagonal-architecture.png)
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.1.3/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.1.3/maven-plugin/reference/html/#build-image)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/3.1.3/reference/htmlsingle/index.html#data.sql.jpa-and-spring-data)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.1.3/reference/htmlsingle/index.html#web)
+I have tried to take a diagram that I have seen common on different articles, even though I saw port/adapter to be swap.
 
-### Guides
-The following guides illustrate how to use some features concretely:
 
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+This project is following this diagram on spring-boot framework.
 
+## Application diagrams
+
+On this I was doing the following approach diagram:
+
+![Application diagram](img/hexagonal-arch-spring-naspredam.png)
+
+Where we have as part of the application is:
+
+- REST implementation
+- Database connection

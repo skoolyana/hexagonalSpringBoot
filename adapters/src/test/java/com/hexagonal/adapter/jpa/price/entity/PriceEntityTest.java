@@ -101,5 +101,55 @@ public class PriceEntityTest {
         assertEquals("USD", usdEntity.getCurrency());
         assertEquals("EUR", euroEntity.getCurrency());
     }
+    
+    
+    @Test
+    public void testDifferentIds() {
+        PriceEntity priceEntity1 = PriceEntityObjectMother.createAnyPriceEntity().id(1L).build();
+        PriceEntity priceEntity2 = PriceEntityObjectMother.createAnyPriceEntity().id(2L).build();
+
+        assertNotEquals(priceEntity1, priceEntity2);
+    }
+
+    @Test
+    public void testDifferentStartDates() {
+        LocalDateTime startDate1 = LocalDateTime.of(2023, 1, 1, 0, 0);
+        LocalDateTime startDate2 = LocalDateTime.of(2023, 2, 1, 0, 0);
+
+        PriceEntity priceEntity1 = PriceEntityObjectMother.createAnyPriceEntity().startDate(startDate1).build();
+        PriceEntity priceEntity2 = PriceEntityObjectMother.createAnyPriceEntity().startDate(startDate2).build();
+
+        assertNotEquals(priceEntity1, priceEntity2);
+    }
+
+    @Test
+    public void testDifferentEndDates() {
+        LocalDateTime endDate1 = LocalDateTime.of(2023, 1, 31, 23, 59, 59);
+        LocalDateTime endDate2 = LocalDateTime.of(2023, 2, 28, 23, 59, 59);
+
+        PriceEntity priceEntity1 = PriceEntityObjectMother.createAnyPriceEntity().endDate(endDate1).build();
+        PriceEntity priceEntity2 = PriceEntityObjectMother.createAnyPriceEntity().endDate(endDate2).build();
+
+        assertNotEquals(priceEntity1, priceEntity2);
+    }
+
+    @Test
+    public void testSameIdsAndEqualObjects() {
+        PriceEntity priceEntity1 = PriceEntityObjectMother.createAnyPriceEntity().id(1L).build();
+        PriceEntity priceEntity2 = PriceEntityObjectMother.createAnyPriceEntity().id(1L).build();
+
+        assertEquals(priceEntity1, priceEntity2);
+    }
+
+    @Test
+    public void testDifferentObjects() {
+        PriceEntity priceEntity = PriceEntityObjectMother.createAnyPriceEntity().build();
+        Object nonPriceEntityObject = new Object();
+
+        assertNotEquals(priceEntity, nonPriceEntityObject);
+    }
+    
+    
+    
 }
 

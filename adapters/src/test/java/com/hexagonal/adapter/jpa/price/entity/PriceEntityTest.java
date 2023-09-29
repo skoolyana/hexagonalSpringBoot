@@ -113,6 +113,98 @@ public class PriceEntityTest {
     }
 
     
+    @Test
+    public void testDifferentPriorities() {
+        LocalDateTime startDate = LocalDateTime.of(2023, 1, 1, 0, 0);
+        LocalDateTime endDate = LocalDateTime.of(2023, 1, 31, 23, 59, 59);
+
+        PriceEntity highPriorityEntity = PriceEntity.builder()
+                .brandId(1L)
+                .startDate(startDate)
+                .endDate(endDate)
+                .priceList(1)
+                .productId(123L)
+                .priority(1) // High priority
+                .price(45.67)
+                .currency("USD")
+                .build();
+
+        PriceEntity lowPriorityEntity = PriceEntity.builder()
+                .brandId(1L)
+                .startDate(startDate)
+                .endDate(endDate)
+                .priceList(1)
+                .productId(123L)
+                .priority(2) // Low priority
+                .price(45.67)
+                .currency("USD")
+                .build();
+
+        assertEquals(1, highPriorityEntity.getPriority());
+        assertEquals(2, lowPriorityEntity.getPriority());
+    }
+
+    @Test
+    public void testDifferentPriceLists() {
+        LocalDateTime startDate = LocalDateTime.of(2023, 1, 1, 0, 0);
+        LocalDateTime endDate = LocalDateTime.of(2023, 1, 31, 23, 59, 59);
+
+        PriceEntity priceList1Entity = PriceEntity.builder()
+                .brandId(1L)
+                .startDate(startDate)
+                .endDate(endDate)
+                .priceList(1)
+                .productId(123L)
+                .priority(1)
+                .price(45.67)
+                .currency("USD")
+                .build();
+
+        PriceEntity priceList2Entity = PriceEntity.builder()
+                .brandId(1L)
+                .startDate(startDate)
+                .endDate(endDate)
+                .priceList(2) // Different price list
+                .productId(123L)
+                .priority(1)
+                .price(45.67)
+                .currency("USD")
+                .build();
+
+        assertEquals(1, priceList1Entity.getPriceList());
+        assertEquals(2, priceList2Entity.getPriceList());
+    }
 
     
+    @Test
+    public void testCurrencyHandling() {
+        LocalDateTime startDate = LocalDateTime.of(2023, 1, 1, 0, 0);
+        LocalDateTime endDate = LocalDateTime.of(2023, 1, 31, 23, 59, 59);
+
+        PriceEntity usdEntity = PriceEntity.builder()
+                .brandId(1L)
+                .startDate(startDate)
+                .endDate(endDate)
+                .priceList(1)
+                .productId(123L)
+                .priority(1)
+                .price(45.67)
+                .currency("USD")
+                .build();
+
+        PriceEntity euroEntity = PriceEntity.builder()
+                .brandId(1L)
+                .startDate(startDate)
+                .endDate(endDate)
+                .priceList(1)
+                .productId(123L)
+                .priority(1)
+                .price(45.67)
+                .currency("EUR") // Different currency
+                .build();
+
+        assertEquals("USD", usdEntity.getCurrency());
+        assertEquals("EUR", euroEntity.getCurrency());
+    }
 }
+

@@ -30,6 +30,63 @@ public class PriceDtoTest {
         assertEquals(45.67, priceDto.getPrice());
         assertEquals("USD", priceDto.getCurrency());
     }
+    
+    
+    @Test
+    public void testPriceDtoWithNullValues() {
+        PriceDto priceDto = new PriceDto();
+        assertNull(priceDto.getProductId());
+        assertNull(priceDto.getBrandId());
+        assertNull(priceDto.getStartDate());
+        assertNull(priceDto.getEndDate());
+        assertNull(priceDto.getCurrency());
+    }
+
+    
+    
+    @Test
+    public void testPriceDtoBuilder() {
+        LocalDateTime startDate = LocalDateTime.now();
+        LocalDateTime endDate = LocalDateTime.now().plusHours(1);
+
+        PriceDto.PriceDtoBuilder builder = PriceDto.builder();
+        builder.productId(123L)
+               .brandId("BrandName")
+               .priceList(1)
+               .startDate(startDate)
+               .endDate(endDate)
+               .price(45.67)
+               .currency("USD");
+
+        PriceDto priceDto = builder.build();
+
+        assertNotNull(priceDto);
+        assertEquals(123L, priceDto.getProductId());
+        assertEquals("BrandName", priceDto.getBrandId());
+        assertEquals(1, priceDto.getPriceList());
+        assertEquals(startDate, priceDto.getStartDate());
+        assertEquals(endDate, priceDto.getEndDate());
+        assertEquals(45.67, priceDto.getPrice());
+        assertEquals("USD", priceDto.getCurrency());
+    }
+    
+    
+    
+    @Test
+    public void testPriceDtoBuilderWithNullValues() {
+        PriceDto.PriceDtoBuilder builder = PriceDto.builder();
+
+        PriceDto priceDto = builder.build();
+
+        assertNotNull(priceDto);
+        assertNull(priceDto.getProductId());
+        assertNull(priceDto.getBrandId());
+        assertEquals(null, priceDto.getPriceList()); 
+        assertNull(priceDto.getStartDate());
+        assertNull(priceDto.getEndDate());
+        assertEquals(null, priceDto.getPrice()); 
+        assertNull(priceDto.getCurrency());
+    }
 
     @Test
     public void testEqualsAndHashCode() {

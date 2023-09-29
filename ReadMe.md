@@ -127,7 +127,6 @@ Where we have as part of the application is:
 - Reusability: Value Objects encapsulate common behaviors and attributes used across multiple Aggregates or Entities. This promotes code reuse and simplifies domain logic.
 
 
-
 - **Repositories:** Repositories are utilized to abstract the data storage details and provide a clean interface for accessing domain objects. By using repositories, we decouple the domain logic from the underlying data storage mechanisms.
 
 

@@ -109,3 +109,26 @@ Where we have as part of the application is:
    detailed coverage information. Simply open the index.html file in the target/site/jacoco directory for 
    each module.
 
+
+## Future Plans for DDD Implementation
+
+**Ubiquitous Language:** We maintain a shared vocabulary between developers, domain experts, and stakeholders. The domain terminology used in our codebase aligns seamlessly with the language used in discussions, ensuring a clear and consistent understanding of the domain.
+
+- **Bounded Contexts:** We identify distinct Bounded Contexts within our system, each with its own well-defined domain model and boundaries. Bounded Contexts allow us to manage complexity and maintain separation between different parts of the system.
+
+- **Aggregates and Entities:** We design Aggregates and Entities to encapsulate domain logic and enforce business rules. Aggregates define transactional consistency boundaries, ensuring data integrity and coherence within specific parts of the domain.
+
+- **Value Objects:** 
+
+- Enforce Business Rules: Value Objects encapsulate domain rules, ensuring that specific attributes adhere to business constraints. This promotes data consistency and integrity.
+
+- Clarity and Expressiveness: By creating meaningful Value Objects, we enhance the readability and expressiveness of our domain model. 
+
+- Reusability: Value Objects encapsulate common behaviors and attributes used across multiple Aggregates or Entities. This promotes code reuse and simplifies domain logic.
+
+
+
+- **Repositories:** Repositories are utilized to abstract the data storage details and provide a clean interface for accessing domain objects. By using repositories, we decouple the domain logic from the underlying data storage mechanisms.
+
+
+

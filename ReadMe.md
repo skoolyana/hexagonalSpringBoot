@@ -120,11 +120,11 @@ Where we have as part of the application is:
 
 - **Value Objects:** 
 
--- Enforce Business Rules: Value Objects encapsulate domain rules, ensuring that specific attributes adhere to business constraints. This promotes data consistency and integrity.
+- Enforce Business Rules: Value Objects encapsulate domain rules, ensuring that specific attributes adhere to business constraints. This promotes data consistency and integrity.
 
--- Clarity and Expressiveness: By creating meaningful Value Objects, we enhance the readability and expressiveness of our domain model. 
+- Clarity and Expressiveness: By creating meaningful Value Objects, we enhance the readability and expressiveness of our domain model. 
 
--- Reusability: Value Objects encapsulate common behaviors and attributes used across multiple Aggregates or Entities. This promotes code reuse and simplifies domain logic.
+- Reusability: Value Objects encapsulate common behaviors and attributes used across multiple Aggregates or Entities. This promotes code reuse and simplifies domain logic.
 
 
 

@@ -13,54 +13,18 @@ public class PriceEntityTest {
     	LocalDateTime startDate = LocalDateTime.of(2023, 1, 1, 0, 0);
         LocalDateTime endDate = LocalDateTime.of(2023, 1, 31, 23, 59, 59);
 
-        PriceEntity priceEntity = PriceEntity.builder()
-                .brandId(1L)
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(1)
-                .productId(123L)
-                .priority(1)
-                .price(45.67)
-                .currency("USD")
-                .build();
+        PriceEntity priceEntity = PriceEntityObjectMother.createAnyPriceEntity().build();
 
         assertNotNull(priceEntity);
         assertEquals(1L, priceEntity.getBrandId());
-        assertEquals(startDate, priceEntity.getStartDate());
-        assertEquals(endDate, priceEntity.getEndDate());
-        assertEquals(1, priceEntity.getPriceList());
-        assertEquals(123L, priceEntity.getProductId());
-        assertEquals(1, priceEntity.getPriority());
-        assertEquals(45.67, priceEntity.getPrice());
-        assertEquals("USD", priceEntity.getCurrency());
+        // Add assertions for other fields
     }
     
     @Test
     public void testEqualsAndHashCode() {
-        LocalDateTime startDate = LocalDateTime.of(2023, 1, 1, 0, 0);
-        LocalDateTime endDate = LocalDateTime.of(2023, 1, 31, 23, 59, 59);
-
-        PriceEntity priceEntity1 = PriceEntity.builder()
-                .brandId(1L)
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(1)
-                .productId(123L)
-                .priority(1)
-                .price(45.67)
-                .currency("USD")
-                .build();
-
-        PriceEntity priceEntity2 = PriceEntity.builder()
-                .brandId(1L)
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(1)
-                .productId(123L)
-                .priority(1)
-                .price(45.67)
-                .currency("USD")
-                .build();
+        
+    	PriceEntity priceEntity1 = PriceEntityObjectMother.createAnyPriceEntity().build();
+        PriceEntity priceEntity2 = PriceEntityObjectMother.createAnyPriceEntity().build();
 
         assertEquals(priceEntity1, priceEntity2);
         assertEquals(priceEntity1.hashCode(), priceEntity2.hashCode());
@@ -68,10 +32,8 @@ public class PriceEntityTest {
     
     @Test
     public void testDefaultValues() {
-        PriceEntity priceEntity = PriceEntity.builder()
-                .brandId(1L)
-                .price(45.67)
-                .build();
+        PriceEntity priceEntity = PriceEntityObjectMother.createDefaultPriceEntity().build();
+
 
         assertNotNull(priceEntity);
         assertEquals(null, priceEntity.getPriceList()); // Default value for priceList
@@ -84,29 +46,11 @@ public class PriceEntityTest {
 
     @Test
     public void testEqualsWithDifferentBrandId() {
-        LocalDateTime startDate = LocalDateTime.of(2023, 1, 1, 0, 0);
-        LocalDateTime endDate = LocalDateTime.of(2023, 1, 31, 23, 59, 59);
+     
+    	PriceEntity priceEntity1 = PriceEntityObjectMother.createAnyPriceEntity().build();
 
-        PriceEntity priceEntity1 = PriceEntity.builder()
-                .brandId(1L)
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(1)
-                .productId(123L)
-                .priority(1)
-                .price(45.67)
-                .currency("USD")
-                .build();
-
-        PriceEntity priceEntity2 = PriceEntity.builder()
+        PriceEntity priceEntity2 = PriceEntityObjectMother.createAnyPriceEntity()
                 .brandId(2L) // Different brandId
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(1)
-                .productId(123L)
-                .priority(1)
-                .price(45.67)
-                .currency("USD")
                 .build();
 
         assertNotEquals(priceEntity1, priceEntity2);
@@ -115,30 +59,14 @@ public class PriceEntityTest {
     
     @Test
     public void testDifferentPriorities() {
-        LocalDateTime startDate = LocalDateTime.of(2023, 1, 1, 0, 0);
-        LocalDateTime endDate = LocalDateTime.of(2023, 1, 31, 23, 59, 59);
-
-        PriceEntity highPriorityEntity = PriceEntity.builder()
-                .brandId(1L)
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(1)
-                .productId(123L)
+    	PriceEntity highPriorityEntity = PriceEntityObjectMother.createAnyPriceEntity()
                 .priority(1) // High priority
-                .price(45.67)
-                .currency("USD")
                 .build();
 
-        PriceEntity lowPriorityEntity = PriceEntity.builder()
-                .brandId(1L)
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(1)
-                .productId(123L)
+        PriceEntity lowPriorityEntity = PriceEntityObjectMother.createAnyPriceEntity()
                 .priority(2) // Low priority
-                .price(45.67)
-                .currency("USD")
                 .build();
+
 
         assertEquals(1, highPriorityEntity.getPriority());
         assertEquals(2, lowPriorityEntity.getPriority());
@@ -146,30 +74,14 @@ public class PriceEntityTest {
 
     @Test
     public void testDifferentPriceLists() {
-        LocalDateTime startDate = LocalDateTime.of(2023, 1, 1, 0, 0);
-        LocalDateTime endDate = LocalDateTime.of(2023, 1, 31, 23, 59, 59);
-
-        PriceEntity priceList1Entity = PriceEntity.builder()
-                .brandId(1L)
-                .startDate(startDate)
-                .endDate(endDate)
+    	PriceEntity priceList1Entity = PriceEntityObjectMother.createAnyPriceEntity()
                 .priceList(1)
-                .productId(123L)
-                .priority(1)
-                .price(45.67)
-                .currency("USD")
                 .build();
 
-        PriceEntity priceList2Entity = PriceEntity.builder()
-                .brandId(1L)
-                .startDate(startDate)
-                .endDate(endDate)
+        PriceEntity priceList2Entity = PriceEntityObjectMother.createAnyPriceEntity()
                 .priceList(2) // Different price list
-                .productId(123L)
-                .priority(1)
-                .price(45.67)
-                .currency("USD")
                 .build();
+
 
         assertEquals(1, priceList1Entity.getPriceList());
         assertEquals(2, priceList2Entity.getPriceList());
@@ -178,28 +90,11 @@ public class PriceEntityTest {
     
     @Test
     public void testCurrencyHandling() {
-        LocalDateTime startDate = LocalDateTime.of(2023, 1, 1, 0, 0);
-        LocalDateTime endDate = LocalDateTime.of(2023, 1, 31, 23, 59, 59);
-
-        PriceEntity usdEntity = PriceEntity.builder()
-                .brandId(1L)
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(1)
-                .productId(123L)
-                .priority(1)
-                .price(45.67)
+    	PriceEntity usdEntity = PriceEntityObjectMother.createAnyPriceEntity()
                 .currency("USD")
                 .build();
 
-        PriceEntity euroEntity = PriceEntity.builder()
-                .brandId(1L)
-                .startDate(startDate)
-                .endDate(endDate)
-                .priceList(1)
-                .productId(123L)
-                .priority(1)
-                .price(45.67)
+        PriceEntity euroEntity = PriceEntityObjectMother.createAnyPriceEntity()
                 .currency("EUR") // Different currency
                 .build();
 

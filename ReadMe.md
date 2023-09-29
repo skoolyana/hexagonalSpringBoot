@@ -25,7 +25,7 @@ Where we have as part of the application is:
 
 ## Project Details
 
-### Prerequisites  
+## Prerequisites  
 
 
 1) Java JDK 17: Ensure you have Java Development Kit (JDK) 17 installed on your system. This version is    
@@ -46,7 +46,7 @@ Where we have as part of the application is:
    It works as an annotation processor during compilation.
 
 
-### Installation
+## Installation
 
 1) Clone the repository
 

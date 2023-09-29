@@ -60,14 +60,14 @@ Where we have as part of the application is:
 
    mvn clean install
 
-### Running The Spring Boot Application
+## Running The Spring Boot Application
 
 1) cd application
 
 2) mvn spring-boot:run
 
 
-### Configuration
+## Configuration
 
 1) Create a application.properties file in the applications module in  src/main/resources directory and add   
    your database configuration.

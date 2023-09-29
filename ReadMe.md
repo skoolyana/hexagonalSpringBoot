@@ -63,25 +63,49 @@ Where we have as part of the application is:
 ### Running The Spring Boot Application
 
 1) cd application
+
 2) mvn spring-boot:run
 
 
 ### Configuration
 
 1) Create a application.properties file in the applications module in  src/main/resources directory and add   
-   your database configuration: 
-   
-   spring.datasource.url=jdbc:h2:mem:testdbsk
-   spring.datasource.driverClassName=org.h2.Driver
-   spring.datasource.username=sa
-   spring.datasource.password=
-   spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-   spring.h2.console.enabled=true
-   spring.h2.console.path=/h2-console
-   spring.jpa.show-sql=true
-   spring.jpa.properties.hibernate.format_sql=true
-   spring.jpa.hibernate.ddl-auto=none
+   your database configuration.
+
+
+## Code Quality Checks
+
+   To run code quality checks using Checkstyle, execute the following Maven command in your project 
+   directory:
+
+   mvn -P Run-Code-Checks checkstyle:check
 
 
 
+## Running Tests
+
+   To run unit tests for your project, execute the following Maven command in your project directory:
+
+   mvn test
+
+
+
+## Code Coverage with JaCoCo
+
+### Prerequisites
+   Make sure you have JaCoCo installed and configured in your project. If not, you can add the JaCoCo plugin 
+   to your Maven build configuration.
+
+### Generating Code Coverage Report
+   To generate code coverage reports for your project, execute the following Maven command in your project 
+   directory:
+
+   mvn clean test jacoco:prepare-agent install jacoco:report
+
+
+### Viewing Code Coverage Report
+
+   After generating the code coverage report, you can open the HTML report in your browser to view the 
+   detailed coverage information. Simply open the index.html file in the target/site/jacoco directory for 
+   each module.
 

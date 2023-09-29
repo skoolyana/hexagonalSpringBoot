@@ -112,7 +112,7 @@ Where we have as part of the application is:
 
 ## Future Plans for DDD Implementation
 
-**Ubiquitous Language:** We maintain a shared vocabulary between developers, domain experts, and stakeholders. The domain terminology used in our codebase aligns seamlessly with the language used in discussions, ensuring a clear and consistent understanding of the domain.
+- **Ubiquitous Language:** We maintain a shared vocabulary between developers, domain experts, and stakeholders. The domain terminology used in our codebase aligns seamlessly with the language used in discussions, ensuring a clear and consistent understanding of the domain.
 
 - **Bounded Contexts:** We identify distinct Bounded Contexts within our system, each with its own well-defined domain model and boundaries. Bounded Contexts allow us to manage complexity and maintain separation between different parts of the system.
 
